@@ -1,0 +1,162 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+
+	return projects.map((project) => ({
+		params: { id: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout
+	title={`${project.data.title} | Eng. Omar Al-Nadhari`}
+	description={project.data.summary}
+>
+	<Navbar />
+
+	<main id="main-content" class="mx-auto max-w-5xl px-6 py-20 sm:py-28">
+		<a
+			href="/#projects"
+			class="text-sm text-slate-400 transition hover:text-white"
+		>
+			← Back to Projects
+		</a>
+
+		<header class="mt-10 border-b border-white/10 pb-12">
+			<p class="text-sm font-medium uppercase tracking-[0.25em] text-slate-400">
+				{project.data.category}
+			</p>
+
+			<h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+				{project.data.title}
+			</h1>
+
+			<p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+				{project.data.summary}
+			</p>
+
+			<ul class="mt-8 flex flex-wrap gap-2">
+				{project.data.technologies.map((technology) => (
+					<li class="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300">
+						{technology}
+					</li>
+				))}
+			</ul>
+		</header>
+		
+		{project.data.image && (
+			<figure class="mt-12 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/20">
+				<img
+					src={project.data.image}
+					alt={`${project.data.title} project overview`}
+					class="block w-full object-cover"
+					loading="eager"
+				/>
+			</figure>
+		)}
+
+			<article
+				class="
+					prose prose-invert prose-slate
+					mt-14 max-w-none
+
+					prose-headings:font-semibold
+					prose-headings:tracking-tight
+					prose-headings:text-white
+
+					prose-h2:mt-16
+					prose-h2:border-t
+					prose-h2:border-white/10
+					prose-h2:pt-10
+					prose-h2:text-3xl
+
+					prose-h3:mt-10
+					prose-h3:text-xl
+
+					prose-p:leading-8
+					prose-p:text-slate-300
+
+					prose-li:my-2
+					prose-li:text-slate-300
+
+					prose-strong:text-white
+
+					prose-code:rounded
+					prose-code:bg-white/10
+					prose-code:px-1.5
+					prose-code:py-0.5
+					prose-code:text-slate-200
+					prose-code:before:content-none
+					prose-code:after:content-none
+
+					prose-blockquote:border-slate-600
+					prose-blockquote:text-slate-300
+
+					prose-img:my-10
+					prose-img:w-full
+					prose-img:rounded-2xl
+					prose-img:border
+					prose-img:border-white/10
+
+					prose-a:text-white
+					prose-a:decoration-slate-500
+					hover:prose-a:decoration-white
+				"
+			>
+				<Content />
+			</article>
+
+	</main>
+</Layout>
+
+<script>
+	document.querySelectorAll('article a[href^="http"]').forEach((link) => {
+		link.setAttribute('target', '_blank');
+		link.setAttribute('rel', 'noopener noreferrer');
+	});
+</script>
+
+<style is:global>
+	article a[href*="github.com"] {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+		padding: 0.7rem 1.1rem;
+
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		border-radius: 0.75rem;
+
+		background: rgba(255, 255, 255, 0.05);
+		color: white;
+
+		font-weight: 600;
+		text-decoration: none;
+
+		transition:
+			background-color 0.2s ease,
+			border-color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	article a[href*="github.com"]:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+	}
+
+	article a[href*="github.com"]::after {
+		content: "↗︎";
+		margin-left: 0.4rem;
+		font-family: Arial, sans-serif;
+		font-size: 0.9em;
+	}
+</style>

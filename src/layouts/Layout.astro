@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const {
+	title,
+	description = 'Portfolio of Eng. Omar Al-Nadhari, Software Engineer.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<meta name="description" content={description} />
+		<meta name="author" content="Omar Al-Nadhari" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
+		<title>{title}</title>
+	</head>
+
+	<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+		
+		<a
+			href="#main-content"
+			class="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition focus:translate-y-0"
+		>
+			Skip to main content
+		</a>
+
+	    <slot />
+    </body>
+</html>
