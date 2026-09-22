@@ -35,3 +35,9 @@ I worked across multiple parts of the platform alongside the project team, contr
 - PHP
 - Node.js
 - MySQL
+
+## Source Code
+
+The project is currently under active development. The GitHub repository will be published when the implementation is ready.
+
+<span class="github-coming-soon">GitHub — Coming Soon</span>

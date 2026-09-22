@@ -1,8 +1,29 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/*
+ * Tailwind v4:
+ * Use the .dark class on <html> to control Dark Mode manually.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
 	scroll-behavior: smooth;
+}
+
+html,
+body {
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease;
+}
+
+html {
+	color-scheme: light;
+}
+
+html.dark {
+	color-scheme: dark;
 }
 
 section[id] {

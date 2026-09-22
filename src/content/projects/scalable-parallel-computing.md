@@ -250,3 +250,9 @@ This sequence of assignments demonstrated several important lessons in performan
 - SLURM
 - Performance benchmarking
 - Strong and weak scalability analysis
+
+## Source Code
+
+The complete source code, implementations, benchmarking setup, and project documentation are available on GitHub.
+
+[GitHub](https://github.com/omar-alnadhari/SPM-Parallel-Programming-Modules)

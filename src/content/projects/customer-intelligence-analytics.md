@@ -247,3 +247,9 @@ Key lessons include:
 - Pytest
 - GitHub Actions
 - Jupyter Notebook
+
+## Source Code
+
+The complete source code, analytics pipeline, project outputs, and documentation are available on GitHub.
+
+[GitHub](https://github.com/omar-alnadhari/customer-intelligence-analytics)
