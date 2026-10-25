@@ -6,7 +6,7 @@ test('homepage loads with main portfolio content', async ({ page }) => {
 	await expect(
 		page.getByRole('heading', {
 			level: 1,
-			name: 'Eng. Omar Al-Nadhari',
+			name: 'Eng. Omar Yahya Al-Nadhari',
 		})
 	).toBeVisible();
 

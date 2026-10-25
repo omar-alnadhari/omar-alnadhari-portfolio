@@ -1,4 +1,4 @@
-# Eng. Omar Al-Nadhari — Software Engineering Portfolio
+# Eng. Omar Yahya Al-Nadhari — Software Engineering Portfolio
 
 A modern, responsive personal portfolio built to present my software engineering experience, technical projects, skills, education, and professional background.
 
@@ -191,7 +191,7 @@ Production website
 
 ## Author
 
-**Eng. Omar Al-Nadhari**
+**Eng. Omar Yahya Al-Nadhari**
 
 Software Engineer  
 MSc Computer Science Candidate — Artificial Intelligence  

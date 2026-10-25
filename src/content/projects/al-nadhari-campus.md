@@ -24,7 +24,7 @@ github: "https://github.com/omar-alnadhari/al-nadhari-campus"
 
 **Project:** Al-Nadhari Campus  
 **Type:** Native Android Application  
-**Developer:** Omar Al-Nadhari  
+**Developer:** Omar Yahya Al-Nadhari\
 **Year:** 2026  
 **Status:** Completed — Initial Release
 
