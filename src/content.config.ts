@@ -1,3 +1,4 @@
+
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
@@ -14,6 +15,12 @@ const projects = defineCollection({
 		technologies: z.array(z.string()),
 		order: z.number(),
 		featured: z.boolean().default(true),
+
+		// Project organization
+		group: z.enum(['core', 'codveda']).default('core'),
+		level: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+
+		// Project media and links
 		image: z.string().optional(),
 		github: z.string().optional(),
 		demo: z.string().optional(),

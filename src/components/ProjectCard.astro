@@ -26,7 +26,11 @@ const {
 			<img
 				src={image}
 				alt={`${title} project preview`}
-				class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+				class={
+					title === "Al-Nadhari Campus"
+					? "h-full w-full object-contain p-3 transition duration-500 group-hover:scale-[1.02]"
+					: "h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+				}
 				loading="lazy"
 			/>
 		</div>
